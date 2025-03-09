@@ -3,13 +3,19 @@
     "builds": [
       {
         "src": "api/generate-assessment.js",
-        "use": "@vercel/node"
+        "use": "@vercel/node" 
       }
     ],
     "routes": [
       {
         "src": "/api/generate-assessment",
-        "dest": "api/generate-assessment.js"
+        "dest": "api/generate-assessment.js",
+        "methods": ["POST"]
       }
-    ]
+    ],
+    "functions": {
+      "api/generate-assessment.js": {
+        "maxDuration": 60 
+      }
+    }
   }
