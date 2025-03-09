@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/generate-assessment.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/generate-assessment",
+        "dest": "api/generate-assessment.js"
+      }
+    ]
+  }
