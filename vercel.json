@@ -12,10 +12,5 @@
         "dest": "api/generate-assessment.js",
         "methods": ["POST"]
       }
-    ],
-    "functions": {
-      "api/generate-assessment.js": {
-        "maxDuration": 60 
-      }
-    }
+    ]
   }
