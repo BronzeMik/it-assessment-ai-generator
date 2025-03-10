@@ -27,6 +27,7 @@ const allowedOrigins = [
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.log(`CORS denied for origin: ${origin}`);
         callback(null, false);
       }
     },
