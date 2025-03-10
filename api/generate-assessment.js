@@ -196,7 +196,7 @@ app.post('/api/generate-assessment', [
             `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaToken}`
         );
         console.log('reCAPTCHA response:', recaptchaResponse.data);
-        if (!recaptchaResponse.data.success || recaptchaResponse.data.score < 0.5) {
+        if (!recaptchaResponse.data.success ) {
             return res.status(403).json({ error: 'Bot detected, please try again.' });
         }
 
