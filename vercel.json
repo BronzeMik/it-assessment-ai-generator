@@ -10,7 +10,7 @@
       {
         "src": "/api/generate-assessment",
         "dest": "api/generate-assessment.js",
-        "methods": ["POST"]
+        "methods": ["POST", "OPTIONS"]
       }
     ]
   }

@@ -14,7 +14,7 @@ import { body, validationResult } from 'express-validator';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+
 
 const allowedOrigins = [
     'http://localhost:8080', // Development frontend
