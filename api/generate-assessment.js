@@ -22,19 +22,20 @@ const allowedOrigins = [
     'https://it.betechpro.com',
   ];
   
-  app.use(cors({
+  const corsOptions = {
     origin: (origin, callback) => {
-      // Allow requests with no origin (e.g., curl, Postman) or if origin is in allowed list
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'));
       }
     },
-    methods: ['GET', 'POST', 'OPTIONS'], // Allow these methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
-    credentials: false, // Set true if you need cookies/auth
-  }));
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    optionsSuccessStatus: 204, // Ensure OPTIONS returns 204 No Content
+  };
+
+  app.use(cors(corsOptions));
 app.use(express.json());
 app.use(helmet());
 app.use(morgan('combined'));
