@@ -39,6 +39,9 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan('combined'));
 app.options('/api/generate-assessment', cors());
+app.options('/', cors(corsOptions), (req, res) => {
+    res.sendStatus(204); // Respond to OPTIONS with 204
+  });
 
 const limiter = rateLimit({
     windowMs: 60 * 60 * 1000,
