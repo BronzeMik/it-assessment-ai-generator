@@ -36,7 +36,8 @@ const allowedOrigins = [
     optionsSuccessStatus: 204, // Ensure OPTIONS returns 204 No Content
   };
 
-  app.use(cors(corsOptions));
+app.set('trust proxy', true);
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(helmet());
 app.use(morgan('combined', { skip: () => process.env.NODE_ENV === 'production' }));
