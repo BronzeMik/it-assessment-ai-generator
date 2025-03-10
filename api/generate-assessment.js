@@ -54,9 +54,7 @@ const TEMPLATE_ID = process.env.PDFMONKEY_TEMPLATE_ID; // From PDFMonkey dashboa
 const GROK_API_URL = 'https://api.x.ai/v1/chat/completions';
 const GROK_API_KEY = process.env.GROK_API_KEY; 
 
-export const config = {
-    runtime: "edge",
-  };
+
 
 // Nodemailer configuration with PrivateEmail SMTP
 const transporter = nodemailer.createTransport({
