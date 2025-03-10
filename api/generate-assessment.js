@@ -38,9 +38,8 @@ const allowedOrigins = [
   app.use(cors(corsOptions));
 app.use(express.json());
 app.use(helmet());
-app.use(morgan('combined'));
-app.options('/api/generate-assessment', cors());
-app.options('/', cors(corsOptions), (req, res) => {
+app.use(morgan('combined', { skip: () => process.env.NODE_ENV === 'production' }));
+app.options('*', cors(corsOptions), (req, res) => {
     res.sendStatus(204); // Respond to OPTIONS with 204
   });
 
