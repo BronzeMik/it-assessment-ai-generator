@@ -38,6 +38,13 @@ const allowedOrigins = [
 
 app.set('trust proxy', 1);
 app.use(cors(corsOptions));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://it.betechpro.com');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+  next();
+});
 app.use(express.json());
 app.use(helmet());
 app.use(morgan('combined', { skip: () => process.env.NODE_ENV === 'production' }));
