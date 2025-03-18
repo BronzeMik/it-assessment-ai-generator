@@ -52,11 +52,11 @@ app.options('*', cors(corsOptions), (req, res) => {
     res.sendStatus(204); // Respond to OPTIONS with 204
   });
 
-const limiter = rateLimit({
-    windowMs: 60 * 60 * 1000,
-    max: 10,
-  });
-app.use('/api/generate-assessment', limiter);
+// const limiter = rateLimit({
+//     windowMs: 60 * 60 * 1000,
+//     max: 10,
+//   });
+// app.use('/api/generate-assessment', limiter);
 
 // PDFMonkey API configuration
 const PDFMONKEY_API_URL = 'https://api.pdfmonkey.io/api/v1/documents';
@@ -173,6 +173,8 @@ const generateAssessment = async (formData) => {
     throw new Error('Failed to generate assessment with Grok API');
   }
 };
+
+export const maxDuration = 60;
 // API Endpoint
 app.post('/api/generate-assessment', [
     body('formData.name').trim().isLength({ min: 1, max: 50 }).escape(),
