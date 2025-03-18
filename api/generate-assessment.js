@@ -244,7 +244,7 @@ app.post('/api/generate-assessment', [
       .from('subscribers')
       .upsert(
         { email: formData.email, verification_token: verificationToken, lead_magnet_generated: leadMagnetData },
-        { onConflict: 'verification_token' }
+        { onConflict: 'email' }
       );
     if (updateError) {
       console.error('Supabase update error:', updateError.message);
