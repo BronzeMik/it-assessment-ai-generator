@@ -52,11 +52,11 @@ app.options('*', cors(corsOptions), (req, res) => {
     res.sendStatus(204); // Respond to OPTIONS with 204
   });
 
-// const limiter = rateLimit({
-//     windowMs: 60 * 60 * 1000,
-//     max: 10,
-//   });
-// app.use('/api/generate-assessment', limiter);
+const limiter = rateLimit({
+    windowMs: 60 * 60 * 1000,
+    max: 10,
+  });
+app.use('/api/generate-assessment', limiter);
 
 // PDFMonkey API configuration
 const PDFMONKEY_API_URL = 'https://api.pdfmonkey.io/api/v1/documents';
