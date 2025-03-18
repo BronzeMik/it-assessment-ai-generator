@@ -1,11 +1,5 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "api/generate-assessment.js",
-        "use": "@vercel/node" 
-      }
-    ],
     "functions": {
     "api/*.js": {
       "maxDuration": 60
