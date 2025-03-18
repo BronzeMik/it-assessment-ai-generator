@@ -23,14 +23,7 @@ const allowedOrigins = [
   ];
   
   const corsOptions = {
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        console.log(`CORS denied for origin: ${origin}`);
-        callback(null, false);
-      }
-    },
+    origin: '*',
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     optionsSuccessStatus: 204, // Ensure OPTIONS returns 204 No Content
